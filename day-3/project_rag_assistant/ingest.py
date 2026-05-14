@@ -3,19 +3,21 @@
 from __future__ import annotations
 
 import re
-import sys
 from pathlib import Path
 
 import chromadb
 import pypdf
-
-sys.path.append(str(Path(__file__).resolve().parents[2]))
-
-from shared.common import embed_texts
+from common import get_openai_client
 
 PROJECT_DIR = Path(__file__).parent
 DB_DIR = PROJECT_DIR / ".chroma"
 COLLECTION_NAME = "workshop_rag"
+
+
+def embed_texts(texts: list[str]) -> list[list[float]]:
+    client = get_openai_client()
+    response = client.embeddings.create(model="text-embedding-3-small", input=texts)
+    return [item.embedding for item in response.data]
 
 
 def clean_text(text: str) -> str:
