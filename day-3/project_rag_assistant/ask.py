@@ -2,16 +2,15 @@
 
 from __future__ import annotations
 
-import sys
-from pathlib import Path
-
 import chromadb
-
-sys.path.append(str(Path(__file__).resolve().parents[2]))
-
+from common import get_openai_client
 from ingest import COLLECTION_NAME, DB_DIR
 
-from shared.common import ask_model, embed_texts
+
+def embed_texts(texts: list[str]) -> list[list[float]]:
+    client = get_openai_client()
+    response = client.embeddings.create(model="text-embedding-3-small", input=texts)
+    return [item.embedding for item in response.data]
 
 
 def get_collection():
