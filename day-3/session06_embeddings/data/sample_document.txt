@@ -1,0 +1,40 @@
+# Technical Workshop Guide: Applied AI Engineering
+
+## Page 1: Introduction
+Welcome to the 5-Day Applied AI Engineering Workshop. This document provides an overview of the topics covered, tools used, and learning objectives.
+
+## Page 2: Day 1 Overview
+Day 1 covers LLM Fundamentals and Prompt Engineering. Participants will learn to make basic API calls, understand response structures, handle errors, and engineer effective prompts.
+
+## Page 3: Day 2 Overview
+Day 2 covers Conversational Memory, Structured Outputs, and Debugging. Participants will build stateful chatbots, generate JSON outputs, and debug common API issues.
+
+## Page 4: Day 3 Overview
+Day 3 covers Embeddings and RAG Pipelines. Participants will learn to generate text embeddings, store them in ChromaDB, and build retrieval-augmented generation systems.
+
+## Page 5: Day 4 Overview
+Day 4 covers Tool Calling and CrewAI Agents. Participants will implement tool-calling loops, define tool schemas, and build multi-agent pipelines with CrewAI.
+
+## Page 6: Day 5 Overview
+Day 5 is Capstone Day. Participants will form teams, build a complete AI workflow, and present their work.
+
+## Page 7: OpenAI SDK Basics
+The modern OpenAI SDK uses `openai.OpenAI()` to create a client, then `client.responses.create()` for new text, multimodal, structured-output, and tool-calling examples. Always handle errors with specific exception types.
+
+## Page 8: Prompt Engineering Techniques
+Effective techniques include Role-Task-Format (RTF), Chain of Thought (CoT), Few-Shot Prompting, and Constrained Output. Always specify output format clearly.
+
+## Page 9: ChromaDB Setup
+ChromaDB is an in-memory or persistent vector database. Use `chromadb.Client()` to create a client, `create_collection` to make a collection, and `add` to insert documents with embeddings.
+
+## Page 10: RAG Pipeline Steps
+1. Convert user query to embedding
+2. Retrieve top-k relevant documents from vector DB
+3. Inject retrieved context into LLM prompt
+4. Generate response using context-augmented prompt
+
+## Page 11: CrewAI Basics
+CrewAI allows building multi-agent pipelines. Define agents with roles/tools, tasks with descriptions, and crews to run agents on tasks sequentially or hierarchically.
+
+## Page 12: Troubleshooting
+Common issues: Invalid API keys, rate limits, token exceeded errors, JSON parse failures. Always check API response headers and use try/except blocks.

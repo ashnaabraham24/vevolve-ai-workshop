@@ -1,0 +1,12 @@
+RAG ingestion begins by loading source documents. The system extracts text from
+each source, cleans whitespace, splits text into chunks, creates embeddings, and
+stores each chunk in a vector database.
+
+Chunk metadata is important because the assistant must show where an answer came
+from. Useful metadata includes the source file, chunk index, and page number
+when the original source is a PDF.
+
+During question answering, the system embeds the user question, retrieves the
+most relevant chunks, and sends only those chunks to the language model. If the
+retrieved context does not contain the answer, the assistant should say it does
+not have enough information.
