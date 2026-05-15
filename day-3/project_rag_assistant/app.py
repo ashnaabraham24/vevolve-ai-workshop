@@ -5,12 +5,15 @@ import sys
 from pathlib import Path
 
 import streamlit as st
+from dotenv import load_dotenv
 
 sys.path.append(str(Path(__file__).resolve().parents[2]))
 sys.path.append(str(Path(__file__).parent))
 
 from ask import answer_question
 from ingest import PROJECT_DIR, ingest_directory
+
+load_dotenv(Path(__file__).parent / ".env")
 
 UPLOAD_DIR = PROJECT_DIR / "uploaded_docs"
 UPLOAD_DIR.mkdir(exist_ok=True)
